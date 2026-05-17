@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ordinateurs et Laptops - Primvo">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style3.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Primvo - Computers & Laptops</title>
+</head>
+<body>
+    <!-- BARRE DE NAVIGATION -->
+    <div class="top-nav-bar">
+        <div class="Search-box">
+            <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
+            <i class="fa fa-times" id="close-btn" onclick="closemenu()" style="display:none;"></i>
+            <a href="../index.html"><img src="../Images/orange-logo.png" alt="LOGO"></a>
+            <input type="text" class="form-control" placeholder="Rechercher...">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+        <div class="menu-bar">
+            <ul>
+                <li><a href="../cart.html"><i class="fa fa-shopping-basket"></i> Panier</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="connexion.html">Se connecter</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- OVERLAY du menu mobile -->
+    <div id="menu-overlay" onclick="closemenu()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999;"></div>
+
+    <div class="page-header" style="background:linear-gradient(135deg,#0d1117,#1a2a3a,#0d1117);">
+        <div class="container">
+            <h1>💻 Computers & Laptops</h1>
+            <p>Laptops, Desktops et Périphériques pour tous vos besoins</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="breadcrumb-custom"><a href="../index.html">Accueil</a> &rsaquo; Computers</div>
+
+        <div class="filter-bar">
+            <div class="category-tabs">
+                <button class="category-tab active" data-cat="all">Tous</button>
+                <button class="category-tab" data-cat="laptop">Laptops</button>
+                <button class="category-tab" data-cat="desktop">Desktops</button>
+                <button class="category-tab" data-cat="peripherique">Périphériques</button>
+            </div>
+            <div>
+                <select id="sort-select">
+                    <option value="default">Trier par défaut</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="result-count" id="result-count" style="margin-bottom:20px;"></div>
+
+        <!-- Laptops -->
+        <div class="product-category active-category" id="cat-laptop" data-category="laptop">
+            <div class="title-box mb-4"><h2>💻 Laptops</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6 product-item" data-price="450000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/choose-3.jpg" alt="Laptop">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Laptop Pro 15" i7</h3>
+                            <div class="price-badge">450.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="280000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/gallery-2.jpg" alt="Laptop">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Laptop Core i5 Student</h3>
+                            <div class="price-badge">280.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="380000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/image_1.jpg" alt="Laptop Gaming">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Gaming Laptop RTX</h3>
+                            <div class="price-badge">380.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="200000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/gallery-3.jpg" alt="Laptop Budget">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Laptop Budget Essential</h3>
+                            <div class="price-badge">200.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nouveaux Ordinateurs -->
+                <div class="col-md-3 col-6 product-item" data-price="350000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/Ordinateur/11.jpg" alt="Ordinateur">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Ordinateur de Bureau Pro</h3>
+                            <div class="price-badge">350.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="275000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/Ordinateur/images.jpg" alt="Ordinateur">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Ordinateur HP Pavillon</h3>
+                            <div class="price-badge">275.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="320000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/Ordinateur/téléchargement.jpg" alt="Ordinateur">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Dell Optiplex Business</h3>
+                            <div class="price-badge">320.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="410000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/images/Ordinateur/téléchargement (1).jpg" alt="Ordinateur">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Workstation Z2 G9</h3>
+                            <div class="price-badge">410.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Périphériques -->
+        <div class="product-category active-category" id="cat-peripherique" data-category="peripherique">
+            <div class="title-box mt-5 mb-4"><h2>🖱️ Périphériques</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6 product-item" data-price="15000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/casque.jpg" alt="Casque PC">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Casque Gaming USB</h3>
+                            <div class="price-badge">15.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="12000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/m2.jpg" alt="Souris">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Souris Sans Fil Ergonomique</h3>
+                            <div class="price-badge">12.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast-notification" id="cartToast" style="display:none;"></div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <img src="../Images/orange-logo.png" alt="Logo" class="footer-logo">
+                    <p>Votre boutique en ligne de confiance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="mobiles.html">Mobiles</a></li>
+                        <li><a href="vetement.html">Vêtements</a></li>
+                        <li><a href="promotions.html">Promotions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="connexion.html">Mon profil</a></li>
+                        <li><a href="../cart.html">Mon panier</a></li>
+                        <li><a href="aide.html">Aide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Primvo | Créé par <span>BONGO Bio Prince</span></p></div>
+        </div>
+    </footer>
+
+    <script>
+        // CORRECTION : classList.add('open') compatible avec le CSS
+        function openmenu(){
+            const m=document.getElementById('side-menu');
+            const ov=document.getElementById('menu-overlay');
+            if(m) m.classList.add('open');
+            if(ov) ov.style.display='block';
+            document.getElementById('menu-btn').style.display='none';
+            document.getElementById('close-btn').style.display='inline-block';
+        }
+        function closemenu(){
+            const m=document.getElementById('side-menu');
+            const ov=document.getElementById('menu-overlay');
+            if(m) m.classList.remove('open');
+            if(ov) ov.style.display='none';
+            document.getElementById('menu-btn').style.display='inline-block';
+            document.getElementById('close-btn').style.display='none';
+        }
+
+        const tabs=document.querySelectorAll('.category-tab'), cats=document.querySelectorAll('.product-category');
+        tabs.forEach(tab=>{ tab.addEventListener('click',function(){
+            tabs.forEach(t=>t.classList.remove('active')); this.classList.add('active');
+            const cat=this.getAttribute('data-cat');
+            cats.forEach(c=>{ cat==='all'?c.classList.add('active-category'):(c.getAttribute('data-category')===cat?c.classList.add('active-category'):c.classList.remove('active-category')); });
+            updateCount();
+        }); });
+        function updateCount(){ document.getElementById('result-count').innerHTML=`${document.querySelectorAll('.product-category.active-category .product-item').length} produit(s) trouvé(s)`; }
+        updateCount();
+
+        document.getElementById('sort-select').addEventListener('change',function(){
+            const order=this.value;
+            document.querySelectorAll('.product-category.active-category').forEach(c=>{
+                const cont=c.querySelector('.row'), items=Array.from(c.querySelectorAll('.product-item'));
+                items.sort((a,b)=>{ const pa=parseInt(a.getAttribute('data-price')), pb=parseInt(b.getAttribute('data-price')); if(order==='price-asc')return pa-pb; if(order==='price-desc')return pb-pa; return 0; });
+                items.forEach(p=>cont.appendChild(p));
+            });
+        });
+
+        const toast=document.getElementById('cartToast');
+        document.querySelectorAll('.btn-order').forEach(btn=>{ btn.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation();
+            const name=this.closest('.product-card').querySelector('h3').innerText;
+            toast.style.display='block'; toast.innerHTML=`<i class="fa fa-check-circle"></i> ${name} ajouté au panier !`;
+            setTimeout(()=>{toast.style.display='none';},2500);
+        }); });
+
+        document.querySelectorAll('.product-top img,.fa-eye').forEach(el=>{ el.style.cursor='pointer'; el.addEventListener('click',()=>{window.location.href='produit.html';}); });
+    </script>
+
+    <!-- Connexion des boutons Commander au panier localStorage -->
+    <script type="module" src="../js/page-cart.js"></script>
+</body>
+</html>
+
+
+

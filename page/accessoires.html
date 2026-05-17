@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessoires Mode Montres Sacs - Primvo">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style3.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Primvo - Accessoires</title>
+</head>
+<body>
+    <div class="top-nav-bar">`n    <div id="menu-overlay" onclick="closemenu()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999;"></div>
+        <div class="Search-box">
+            <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>`n            <i class="fa fa-times" id="close-btn" onclick="closemenu()" style="display:none;"></i>
+            
+            <a href="../index.html"><img src="../Images/orange-logo.png" alt="LOGO"></a>
+            <input type="text" class="form-control" placeholder="Rechercher...">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+        <div class="menu-bar">
+            <ul>
+                <li><a href="../cart.html"><i class="fa fa-shopping-basket"></i> Panier</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="connexion.html">Se connecter</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-header" style="background:linear-gradient(135deg,#1a0a2e,#3d1a6e,#1a0a2e);">
+        <div class="container">
+            <h1>💍 Accessoires Mode</h1>
+            <p>Montres, Bracelets, Sacs et Lunettes — Sublimez votre style</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="breadcrumb-custom"><a href="../index.html">Accueil</a> &rsaquo; Accessoires</div>
+
+        <div class="filter-bar">
+            <div class="category-tabs">
+                <button class="category-tab active" data-cat="all">Tous</button>
+                <button class="category-tab" data-cat="montre">Montres</button>
+                <button class="category-tab" data-cat="sac">Sacs</button>
+                <button class="category-tab" data-cat="bracelet">Bracelets</button>
+                <button class="category-tab" data-cat="lunette">Lunettes</button>
+            </div>
+            <div>
+                <select id="sort-select">
+                    <option value="default">Trier par défaut</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="result-count" id="result-count" style="margin-bottom:20px;"></div>
+
+        <!-- Montres -->
+        <div class="product-category active-category" id="cat-montre" data-category="montre">
+            <div class="title-box mb-4"><h2>⌚ Montres</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6 product-item" data-price="25000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/montre connecter 3.jpg" alt="Montre Classique">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Montre Classique</h3>
+                            <div class="price-badge">25.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="12000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/montre connecter 2.jpg" alt="Montre Fitness">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Montre Fitness Connectée</h3>
+                            <div class="price-badge">12.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="13000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/montre connecter 3.jpg" alt="Montre Pro">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Montre Fitness Pro</h3>
+                            <div class="price-badge">13.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="18000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/montre connecter.jpg" alt="Montre Sport">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Montre Sport GPS</h3>
+                            <div class="price-badge">18.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sacs -->
+        <div class="product-category active-category" id="cat-sac" data-category="sac">
+            <div class="title-box mt-5 mb-4"><h2>👜 Sacs</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6 product-item" data-price="14500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/m1.jpg" alt="Sac Urbain">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Sac à Dos Urbain</h3>
+                            <div class="price-badge">14.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="19000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/m2.jpg" alt="Sac à Main">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Sac à Main Femme</h3>
+                            <div class="price-badge">19.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nouveaux Sacs -->
+                <div class="col-md-3 col-6 product-item" data-price="15000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/sacs1.jpg" alt="Sac">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Sac Elégance</h3>
+                            <div class="price-badge">15.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="12000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/sacs2.jpg" alt="Sac">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Sac Casual</h3>
+                            <div class="price-badge">12.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="18500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/sacs3.jpg" alt="Sac">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Sac de Voyage</h3>
+                            <div class="price-badge">18.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="14000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/sacs4.jpg" alt="Sac">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Sac Porté Epaule</h3>
+                            <div class="price-badge">14.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bracelets -->
+        <div class="product-category active-category" id="cat-bracelet" data-category="bracelet">
+            <div class="title-box mt-5 mb-4"><h2>📿 Bracelets & Bijoux</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6 product-item" data-price="5500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/bracelet1.jpg" alt="Bracelet">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Bracelet Tendance</h3>
+                            <div class="price-badge">5.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="4500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/bracelet2.jpg" alt="Bracelet">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Bracelet Bohème</h3>
+                            <div class="price-badge">4.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="6000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/bracelet3.jpg" alt="Bracelet">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Bracelet Perle</h3>
+                            <div class="price-badge">6.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="7500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/bracelet4.jpg" alt="Bracelet">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Bracelet Luxe</h3>
+                            <div class="price-badge">7.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lunettes -->
+        <div class="product-category active-category" id="cat-lunette" data-category="lunette">
+            <div class="title-box mt-5 mb-4"><h2>👓 Lunettes</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6 product-item" data-price="8500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/lunette1.jpg" alt="Lunettes">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                            <h3>Lunettes de Soleil Fashion</h3>
+                            <div class="price-badge">8.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="9500">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/lunette2.jpg" alt="Lunettes">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Lunettes Aviateur</h3>
+                            <div class="price-badge">9.500 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="7000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/lunette3.jpg" alt="Lunettes">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            <h3>Lunettes Vintage</h3>
+                            <div class="price-badge">7.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 product-item" data-price="12000">
+                    <div class="product-card">
+                        <div class="product-top">
+                            <img src="../Images/accessoirs/lunette4.jpg" alt="Lunettes">
+                            <div class="overlay-right">
+                                <button class="btn btn-secondary quick-view"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-secondary wishlist"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <h3>Lunettes Premium Black</h3>
+                            <div class="price-badge">12.000 FCFA</div>
+                            <button class="btn-order"><i class="fa fa-shopping-cart"></i> Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast-notification" id="cartToast" style="display:none;"></div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <img src="../Images/orange-logo.png" alt="Logo" class="footer-logo">
+                    <p>Votre boutique en ligne de confiance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="vetement.html">Vêtements</a></li>
+                        <li><a href="chaussures.html">Chaussures</a></li>
+                        <li><a href="promotions.html">Promotions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="connexion.html">Mon profil</a></li>
+                        <li><a href="../cart.html">Mon panier</a></li>
+                        <li><a href="aide.html">Aide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Primvo | Créé par <span>BONGO Bio Prince</span></p></div>
+        </div>
+    </footer>
+
+    <script>
+        function openmenu(){document.getElementById("menu-btn").style.display="none";document.getElementById("close-btn").style.display="block";}
+        function closemenu(){document.getElementById("menu-btn").style.display="block";document.getElementById("close-btn").style.display="none";}
+
+        const tabs=document.querySelectorAll('.category-tab'), cats=document.querySelectorAll('.product-category');
+        tabs.forEach(tab=>{ tab.addEventListener('click',function(){
+            tabs.forEach(t=>t.classList.remove('active')); this.classList.add('active');
+            const cat=this.getAttribute('data-cat');
+            cats.forEach(c=>{ cat==='all'?c.classList.add('active-category'):(c.getAttribute('data-category')===cat?c.classList.add('active-category'):c.classList.remove('active-category')); });
+            updateCount();
+        }); });
+        function updateCount(){ document.getElementById('result-count').innerHTML=`${document.querySelectorAll('.product-category.active-category .product-item').length} produit(s) trouvé(s)`; }
+        updateCount();
+
+        document.getElementById('sort-select').addEventListener('change',function(){
+            const order=this.value;
+            document.querySelectorAll('.product-category.active-category').forEach(c=>{
+                const cont=c.querySelector('.row'), items=Array.from(c.querySelectorAll('.product-item'));
+                items.sort((a,b)=>{ const pa=parseInt(a.getAttribute('data-price')), pb=parseInt(b.getAttribute('data-price')); if(order==='price-asc')return pa-pb; if(order==='price-desc')return pb-pa; return 0; });
+                items.forEach(p=>cont.appendChild(p));
+            });
+        });
+
+        const toast=document.getElementById('cartToast');
+        document.querySelectorAll('.btn-order').forEach(btn=>{ btn.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation();
+            const name=this.closest('.product-card').querySelector('h3').innerText;
+            toast.style.display='block'; toast.innerHTML=`<i class="fa fa-check-circle"></i> ${name} ajouté au panier !`;
+            setTimeout(()=>{toast.style.display='none';},2500);
+        }); });
+
+        document.querySelectorAll('.product-top img,.fa-eye').forEach(el=>{ el.style.cursor='pointer'; el.addEventListener('click',()=>{window.location.href='produit.html';}); });
+    </script>
+</body>
+</html>
+
+
+

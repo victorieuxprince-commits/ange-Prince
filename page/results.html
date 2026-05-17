@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <title>Résultats de recherche - Primvo</title>
+</head>
+
+<body>
+    <!-- BARRE DE NAVIGATION -->
+    <div class="top-nav-bar">`n    <div id="menu-overlay" onclick="closemenu()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999;"></div>
+        <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>`n            <i class="fa fa-times" id="close-btn" onclick="closemenu()" style="display:none;"></i>
+        
+        
+        <div class="Search-box">
+            <a href="../index.html"><img src="../Images/orange-logo.png" alt="LOGO"></a>
+            <div class="search-input-container">
+                <i class="fa fa-search search-icon-inside"></i>
+                <input type="text" class="form-control" placeholder="Rechercher un produit...">
+                <span class="input-group-text"><i class="fa fa-arrow-right"></i></span>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <ul>
+                <li>
+                    <a href="../cart.html" class="nav-link-item">
+                        <i class="fa fa-shopping-basket"></i>
+                        <span>Panier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscription.html" class="nav-link-item btn-auth">
+                        <i class="fa fa-user-plus"></i>
+                        <span>S'inscrire</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="connexion.html" class="nav-link-item">
+                        <i class="fa fa-sign-in"></i>
+                        <span>Connexion</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="on-sale">
+        <div class="container">
+            <div class="title-box">
+                <h2 id="search-title">Résultats pour : </h2>
+            </div>
+            <div id="search-results-container" class="row g-4">
+                <!-- Les produits recherchés s'afficheront ici -->
+                <div class="col-12 text-center py-5" id="loading-spinner">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Chargement...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import { getAllProducts, renderProducts } from '../js/products.js';
+
+        async function initSearch() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            
+            if (!query) {
+                document.getElementById('search-title').innerText = "Aucune recherche effectuée";
+                document.getElementById('loading-spinner').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('search-title').innerText = `Résultats pour : "${query}"`;
+
+            const allProducts = getAllProducts();
+            const filteredProducts = allProducts.filter(p => 
+                p.name.toLowerCase().includes(query.toLowerCase()) || 
+                (p.category && p.category.toLowerCase().includes(query.toLowerCase()))
+            );
+
+            document.getElementById('loading-spinner').style.display = 'none';
+
+            if (filteredProducts.length > 0) {
+                renderProducts(filteredProducts, 'search-results-container', true);
+            } else {
+                document.getElementById('search-results-container').innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="fa fa-search-minus fa-3x mb-3 text-muted"></i>
+                        <h3>Désolé, aucun produit ne correspond à votre recherche.</h3>
+                        <p>Essayez avec d'autres mots-clés ou parcourez nos catégories.</p>
+                        <a href="../index.html" class="btn btn-orange mt-3 rounded-pill px-4">Retour à l'accueil</a>
+                    </div>
+                `;
+            }
+        }
+
+        initSearch();
+    </script>
+    <script type="module" src="../js/search.js"></script>
+</body>
+
+</html>
+
+
+

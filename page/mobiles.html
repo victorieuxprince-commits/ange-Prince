@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mobiles, Smartphones et Tablettes - Primvo">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style3.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Primvo - Mobiles & Smartphones</title>
+</head>
+<body>
+    <!-- BARRE DE NAVIGATION -->
+    <div class="top-nav-bar">
+        <div class="Search-box">
+            <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
+            <i class="fa fa-times" id="close-btn" onclick="closemenu()" style="display:none;"></i>
+            <a href="../index.html"><img src="../Images/orange-logo.png" alt="LOGO"></a>
+            <input type="text" class="form-control" placeholder="Rechercher...">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+        <div class="menu-bar">
+            <ul>
+                <li><a href="../cart.html"><i class="fa fa-shopping-basket"></i> Panier</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="connexion.html">Se connecter</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- OVERLAY du menu mobile -->
+    <div id="menu-overlay" onclick="closemenu()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999;"></div>
+
+    <div class="page-header" style="background:linear-gradient(135deg,#0a0a2e,#1a1a6e,#0a0a2e);">
+        <div class="container">
+            <h1>📱 Mobiles & Smartphones</h1>
+            <p>Les meilleurs smartphones, tablettes et accessoires au meilleur prix</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="breadcrumb-custom"><a href="../index.html">Accueil</a> &rsaquo; Mobiles</div>
+
+        <div class="filter-bar">
+            <div class="category-tabs">
+                <button class="category-tab active" data-cat="all">Tous</button>
+                <button class="category-tab" data-cat="smartphone">Smartphones</button>
+                <button class="category-tab" data-cat="tablette">Tablettes</button>
+                <button class="category-tab" data-cat="accessoire">Accessoires</button>
+            </div>
+            <div>
+                <select id="sort-select">
+                    <option value="default">Trier par défaut</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="result-count" id="result-count" style="margin-bottom:20px;"></div>
+
+        <div class="product-category active-category">
+            <div id="mobiles-container" class="row g-4">
+                <!-- Produits injectés par JS -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-orange" role="status"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast-container"></div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <img src="../Images/orange-logo.png" alt="Logo" class="footer-logo">
+                    <p>Votre boutique en ligne de confiance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="vetement.html">Vêtements</a></li>
+                        <li><a href="chaussures.html">Chaussures</a></li>
+                        <li><a href="promotions.html">Promotions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="connexion.html">Mon profil</a></li>
+                        <li><a href="../cart.html">Mon panier</a></li>
+                        <li><a href="aide.html">Aide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Primvo | Créé par <span>BONGO Bio Prince</span></p></div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { PRODUCTS_DATA, renderProducts } from '../js/products.js';
+        import { cartManager } from '../js/cart.js';
+        import { showToast } from '../js/ui.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // CORRECTION : utilisation de PRODUCTS_DATA.filter() (getProductsByCategory n'existe pas)
+            const mobiles = PRODUCTS_DATA.filter(p => p.category === 'Mobiles');
+            renderProducts(mobiles, 'mobiles-container', true);
+            
+            // Gestionnaire panier pour cette page
+            document.body.addEventListener('click', (e) => {
+                const btn = e.target.closest('.btn-add-cart');
+                if (!btn) return;
+                const id = btn.dataset.id;
+                // Recherche dans PRODUCTS_DATA puis dans data-product
+                let product = PRODUCTS_DATA.find(p => p.id === id);
+                if (!product && btn.dataset.product) {
+                    try { product = JSON.parse(btn.dataset.product.replace(/&apos;/g, "'")); } catch(err) {}
+                }
+                if (product) {
+                    cartManager.addItem(product);
+                    btn.classList.add('btn-added');
+                    setTimeout(() => btn.classList.remove('btn-added'), 800);
+                    showToast(`✓ ${product.name} ajouté au panier !`);
+                }
+            });
+        });
+
+        // CORRECTION : utilisation de classList.add('open') compatible avec le CSS
+        window.openmenu = () => {
+            const m = document.getElementById('side-menu');
+            if (m) m.classList.add('open');
+            const ov = document.getElementById('menu-overlay');
+            if (ov) ov.style.display = 'block';
+            document.getElementById('menu-btn').style.display = 'none';
+            document.getElementById('close-btn').style.display = 'inline-block';
+        };
+        window.closemenu = () => {
+            const m = document.getElementById('side-menu');
+            if (m) m.classList.remove('open');
+            const ov = document.getElementById('menu-overlay');
+            if (ov) ov.style.display = 'none';
+            document.getElementById('menu-btn').style.display = 'inline-block';
+            document.getElementById('close-btn').style.display = 'none';
+        };
+    </script>
+</body>
+</html>
+
+
+

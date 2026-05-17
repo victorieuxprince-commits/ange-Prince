@@ -245,7 +245,7 @@
         <div class="footer-container">
             <div class="footer-row">
                 <div class="footer-col">
-                    <img src="image/orange-logo.png" alt="Logo" class="footer-logo">
+                    <img src="../Images/orange-logo.png" alt="Logo" class="footer-logo">
                     <p>Votre boutique en ligne de confiance pour les vêtements, chaussures et accessoires tendance.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -289,16 +289,23 @@
     </footer>
 
     <script>
-        // Menu latéral
+        // CORRECTION : utilisation de classList.add('open') compatible avec le CSS
+        // Ancienne version utilisait style.display qui conflicte avec position:fixed du menu
         function openmenu() {
-            document.getElementById("side-menu").style.display = "block";
-            document.getElementById("menu-btn").style.display = "none";
-            document.getElementById("close-btn").style.display = "block";
+            const m = document.getElementById('side-menu');
+            const ov = document.getElementById('menu-overlay');
+            if (m) m.classList.add('open');
+            if (ov) ov.style.display = 'block';
+            document.getElementById('menu-btn').style.display = 'none';
+            document.getElementById('close-btn').style.display = 'inline-block';
         }
         function closemenu() {
-            document.getElementById("side-menu").style.display = "none";
-            document.getElementById("menu-btn").style.display = "block";
-            document.getElementById("close-btn").style.display = "none";
+            const m = document.getElementById('side-menu');
+            const ov = document.getElementById('menu-overlay');
+            if (m) m.classList.remove('open');
+            if (ov) ov.style.display = 'none';
+            document.getElementById('menu-btn').style.display = 'inline-block';
+            document.getElementById('close-btn').style.display = 'none';
         }
 
         // Filtrage par catégorie
@@ -380,12 +387,14 @@
                 }, 2000);
             });
         });
+        updateResultCount();
 
-        // Gestion du responsive menu latéral
-        if (window.innerWidth <= 992) {
-            document.getElementById("side-menu").style.display = "none";
-            document.getElementById("close-btn").style.display = "none";
-        }
+        // Suppression du code qui forçait display:none sur le menu mobile :
+        // Ce code entrait en conflit avec le CSS position:fixed et empêchait l'ouverture
+        // Le CSS gère maintenant automatiquement la visibilité via left:-300px / left:0
     </script>
+
+    <!-- Connexion des boutons Commander au panier localStorage -->
+    <script type="module" src="../js/page-cart.js"></script>
 </body>
 </html>
