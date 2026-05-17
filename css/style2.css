@@ -1039,12 +1039,16 @@ html {
         /* Bootstrap gère nativement : 2 par ligne via col-6, OK */
     }
 
-    /* Only full-width the columns that don't have a col-6 class */
-    .row > [class*='col-md-']:not([class*='col-6']):not([class*='col-sm-']) {
+    /* 1 seul produit par ligne sur mobile pour garantir un design premium sans débordement */
+    .product-item, 
+    .similar-products [class*='col-'],
+    #promo-container [class*='col-'],
+    #new-arrivals-container [class*='col-'],
+    #best-sellers-container [class*='col-'] {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
     
     /* Grille Bootstrap sur mobile - NE PAS forcer flex-direction:column
@@ -1314,17 +1318,21 @@ content: 'SEC';
 }
 
 .product-card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 20px;
-    padding: 10px;
+    padding: 15px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border-color: orange;
+    box-shadow: 0 20px 40px rgba(255, 165, 0, 0.15);
+    border-color: rgba(255, 165, 0, 0.5);
 }
 
 /* Glassmorphism for containers */

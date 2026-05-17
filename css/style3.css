@@ -356,15 +356,21 @@ html {
 .product-card {
     background: white;
     border-radius: 20px;
+    padding: 15px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     position: relative;
+    border: 1px solid rgba(0,0,0,0.02);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(255,165,0,0.15);
+    border-color: rgba(255,165,0,0.3);
 }
 
 .product-top {
@@ -709,24 +715,14 @@ html {
 
 /* Pour les téléphones (moins de 768px) - 1 produit par ligne */
 @media only screen and (max-width: 767px) {
-    /* Correction cruciale : 1 seul produit par ligne sur mobile */
-    .row {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .product-item {
+    /* 1 seul produit par ligne sur mobile pour éviter les débordements */
+    .product-item, 
+    .similar-products [class*='col-'],
+    .product-category [class*='col-'] {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
-        margin-bottom: 25px;
-    }
-    
-    /* Ajustement de la grille Bootstrap */
-    .col-md-3, .col-6 {
-        width: 100% !important;
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
+        margin-bottom: 30px;
     }
     
     .page-header {
